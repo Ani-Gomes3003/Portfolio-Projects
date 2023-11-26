@@ -186,24 +186,6 @@ WHERE
     dea.continent IS NOT NULL;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Create View PercentPopulationVaccinated as
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
 , SUM(Cast(vac.new_vaccinations)as signed) OVER (Partition by dea.Location Order by dea.location, dea.Date) as RollingPeopleVaccinated
